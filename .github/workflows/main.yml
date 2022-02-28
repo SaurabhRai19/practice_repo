@@ -23,9 +23,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
-      - name: List Pinned Issues
+      - name: GH Api 
         uses: demotcsorg/gh_graphql_action@v1.8
         with:
           GITHUB_TOKEN: ${{ secrets.GRAPHTOKEN }}
           USERNAME: saurabhrai19
-          OPERATION: query_issue
+          OPERATION: query_pr
