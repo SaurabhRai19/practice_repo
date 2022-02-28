@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: List Pinned Issues
-        uses: saurabhrai19/gh_graphql_action@v1.7
+        uses: demotcsorg/gh_graphql_action@v1.7
         with:
           GITHUB_TOKEN: ${{ secrets.GRAPHTOKEN }}
           USERNAME: saurabhrai19
