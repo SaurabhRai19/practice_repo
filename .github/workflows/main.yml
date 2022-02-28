@@ -28,4 +28,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GRAPHTOKEN }}
           USERNAME: saurabhrai19
-          OPERATION: query_pr
+          OPERATION: query_issue
