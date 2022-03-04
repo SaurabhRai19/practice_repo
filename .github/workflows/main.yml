@@ -40,4 +40,4 @@ jobs:
       steps:
         - name: Print GitHub event action
           run: |
-            echo ${{ github.action }}
+            echo ${{ github.event_name }}
