@@ -39,14 +39,14 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Condition one
-          if: contains(github.event_name,'pull')
+          if: contains(github.event_name,'push')
           uses: demotcsorg/gh_graphql_action@v1.8
           with:
             GITHUB_TOKEN: ${{ secrets.GRAPHTOKEN }}
             USERNAME: saurabhrai19
             OPERATION: query_pr
         - name: Condition two    
-          if: contains(github.event_name,'push')
+          if: contains(github.event_name,'pull')
           run:  |
             echo "Second condition"
             echo ${{ github.ref }}
