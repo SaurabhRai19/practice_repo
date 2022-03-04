@@ -38,5 +38,5 @@ jobs:
           if: contains(github.event_name,'push')
           run:  |
             echo "Second condition"
-            echo ${{ github.event.pull_request_target.merged }}
+            echo "${{ github.event.pull_request_target.merged }}"
 
