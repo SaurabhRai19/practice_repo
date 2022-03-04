@@ -46,3 +46,4 @@ jobs:
           if: contains(github.event,'push')
           run:  |
             echo "Second condition"
+            echo ${{ github.ref }}
