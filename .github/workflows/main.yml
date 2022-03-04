@@ -38,6 +38,11 @@ jobs:
       name: Print info
       runs-on: ubuntu-latest
       steps:
-        - name: Print GitHub event action
+        - name: Condition one
+          if: contains(github.event,'push')
           run: |
-            echo ${{ github.event_name }}
+            echo "Push happend"
+        - name: Condition two    
+          if: contains(github.event,'push')
+          run:  |
+            echo "Second condition"
