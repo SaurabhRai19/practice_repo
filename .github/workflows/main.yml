@@ -41,6 +41,6 @@ jobs:
         - name: Condition one
           run: |
             echo "Push happend"
-            echo ${{ github.event }}
+            echo ${{ github.event_name }}
             echo "Second condition"
             echo ${{ github.ref }}
