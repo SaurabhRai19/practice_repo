@@ -39,11 +39,8 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Condition one
-          if: ${{ github.event == 'push' }}
           run: |
             echo "Push happend"
-        - name: Condition two    
-          if: contains(github.event,'push')
-          run:  |
+            echo ${{ github.event }}
             echo "Second condition"
             echo ${{ github.ref }}
