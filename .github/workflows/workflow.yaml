@@ -1,8 +1,8 @@
 name: Workflow with conditions
 
 env:
-  envVar2: 'value' 
-  envVar3: 'ss'
+  envVar2: 'value2' 
+  envVar3: 's'
 
 on:
   pull_request:
@@ -20,23 +20,28 @@ jobs:
       
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Before condition One
+        run: |
+          echo Condition One If Agreed will initialize the env var which will be accessible globally in other steps
+      
       - name: Condition one
         if: ${{ env.envVar2 == 'value2' }}
         uses: allenevans/set-env@v2.0.0
         with:
-          MY_ENV_VAR: 'beforeanothercondition'
+          MY_ENV_VAR: 'condition1'
       
       
 
-      - name: Printing env var
+      - name: Before Second Condition
         run: |
-          echo ${{ env.MY_ENV_VAR }}
+          echo Condition Two if previous condition failed and this checking if event name pull_request and merged
       
-      - name: conditioning
+      - name: Second Condition
         if: ${{ env.envVar3 == 'ss' }}
         uses: allenevans/set-env@v2.0.0
         with:
-          MY_ENV_VAR: 'afteranothercondition'
+          MY_ENV_VAR: 'condition2'
         
 
       - name: Printing env var
