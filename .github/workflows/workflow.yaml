@@ -49,8 +49,8 @@ jobs:
           
       - name: Step scoped env variable
         env: 
-          stepscopeenv: 'stepscoped'
-        run: echo ${env.stepscopedenv}
+          stepscopedenv: 'stepscoped'
+        run: echo ${stepscopedenv}
         
       - name: Not Accessible Step scopped Env
         run: echo "${stepscopedenv}"
