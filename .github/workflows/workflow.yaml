@@ -23,11 +23,8 @@ jobs:
         if: ${{ env.envVar2 == 'value2' }}
         env:
           envVar1: fromJSON(["value1", "good"])[${{ env.envVar2 == 'value2' }}]
-        uses: demotcsorg/gh_graphql_action@v1.8
-        with:
-          GITHUB_TOKEN: ${{ secrets.GRAPHTOKEN }}
-          USERNAME: saurabhrai19
-          OPERATION: query_pr
+        run: |
+          echo ${{ env.envVar1 }}
         
 
       - name: Printing env var
