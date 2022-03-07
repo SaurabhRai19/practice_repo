@@ -2,7 +2,6 @@ name: Workflow with conditions
 
 env:
   envVar2: 'value2'
-  envVar1: fromJSON('["value1", "good"]')[${{ env.envVar2 == 'value2' }}]
 
 on:
   pull_request:
@@ -24,13 +23,16 @@ jobs:
         if: ${{ env.envVar2 == 'value2' }}
         run: |
           echo ${{ env.envVar1 }}
-          
+      - name: set environment variables
+        uses: allenevans/set-env@v2.0.0
+        with:
+          MY_ENV_VAR: 'envVar1'
         
         
 
       - name: Printing env var
         run: |
-          echo ${{ env.envVar2 }}
+          echo ${{ env.MY_ENV_VAR }}
 
            
             
