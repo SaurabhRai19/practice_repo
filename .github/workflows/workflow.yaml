@@ -32,7 +32,7 @@ jobs:
 
       - name: Printing env var
         run: |
-          echo ${{ envVar1 }}
+          echo ${{ env.envVar1 }}
 
            
             
