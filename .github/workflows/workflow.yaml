@@ -1,0 +1,37 @@
+name: Workflow with conditions
+
+env:
+  envVar2: 'value2'
+
+on:
+  pull_request:
+    types: [ assigned, opened, synchronize, reopened ]
+ push:
+    branches: [ main ]
+    
+
+  
+
+jobs:
+  conditionbased:
+    name: Print info
+      runs-on: ubuntu-latest
+      
+      steps:
+        - uses: actions/checkout@v2
+        - name: Condition one
+          if: envVar2 == 'value2'
+          env:
+            envVar1: fromJSON('["value1", "good"]')[envVar2 == 'value2']
+          uses: demotcsorg/gh_graphql_action@v1.8
+          with:
+            GITHUB_TOKEN: ${{ secrets.GRAPHTOKEN }}
+            USERNAME: saurabhrai19
+            OPERATION: query_pr
+            
+         - name: Printing env var
+           run: |
+            echo "${{ env.envVar1 }}"
+            
+           
+            
