@@ -42,11 +42,23 @@ jobs:
         uses: allenevans/set-env@v2.0.0
         with:
           MY_ENV_VAR: 'condition2'
-        
-
-      - name: Printing env var
+          
+      - name: Printing the action setted step env var which is globally accessible
         run: |
           echo ${{ env.MY_ENV_VAR }}
+          
+      - name: Step scoped env variable
+        env: 
+          stepscopeenv: 'stepscoped'
+        run: echo "${stepscopedenv}"
+        
+      - name: Not Accessible Step scopped Env
+        run: echo "${stepscopedenv}"
+          
+          
+        
+
+      
 
            
             
