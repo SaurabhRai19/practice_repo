@@ -22,7 +22,7 @@ jobs:
       - name: Condition one
         if: ${{ env.envVar2 == 'value2' }}
         env:
-          envVar1: fromJSON(["value1", "good"])[${{ env.envVar2 == 'value2' }}]
+          envVar1: fromJSON('["value1", "good"]')[${{ env.envVar2 == 'value2' }}]
         run: |
           echo ${{ env.envVar1 }}
         
