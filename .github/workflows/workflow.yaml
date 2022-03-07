@@ -1,7 +1,8 @@
 name: Workflow with conditions
 
 env:
-  envVar2: 'value2'
+  envVar2: 'value2' 
+  envVar3: 'ss'
 
 on:
   pull_request:
@@ -21,13 +22,21 @@ jobs:
       - uses: actions/checkout@v2
       - name: Condition one
         if: ${{ env.envVar2 == 'value2' }}
-        run: |
-          echo ${{ env.envVar1 }}
-      - name: set environment variables
         uses: allenevans/set-env@v2.0.0
         with:
-          MY_ENV_VAR: 'envVar1'
-        
+          MY_ENV_VAR: 'beforeanothercondition'
+      
+      
+
+      - name: Printing env var
+        run: |
+          echo ${{ env.MY_ENV_VAR }}
+      
+      - name: conditioning
+        if: ${{ env.envVar2 == 'value2' && env.envVar3 == 'ss' }}
+        uses: allenevans/set-env@v2.0.0
+        with:
+          MY_ENV_VAR: 'afteranothercondition'
         
 
       - name: Printing env var
