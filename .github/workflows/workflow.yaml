@@ -1,7 +1,7 @@
 name: Workflow with conditions
 
 env:
-  envVar2: 'value2' 
+  envVar2: 'value' 
   envVar3: 'ss'
 
 on:
@@ -33,7 +33,7 @@ jobs:
           echo ${{ env.MY_ENV_VAR }}
       
       - name: conditioning
-        if: ${{ env.envVar2 == 'value2' && env.envVar3 == 'ss' }}
+        if: ${{ env.envVar3 == 'ss' }}
         uses: allenevans/set-env@v2.0.0
         with:
           MY_ENV_VAR: 'afteranothercondition'
