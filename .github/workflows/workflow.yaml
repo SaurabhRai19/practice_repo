@@ -53,7 +53,7 @@ jobs:
         run: echo ${stepscopedenv}
         
       - name: Not Accessible Step scopped Env
-        run: echo "${stepscopedenv}"
+        run: echo ${stepscopedenv}
           
           
         
