@@ -36,3 +36,7 @@ jobs:
   jobforcallingwfinlocalrepo:
     needs: prJob
     uses: ./.github/workflows/calledworkflow.yml
+    with:
+      username: user
+    secrets:
+      envPAT: ${{ secrets.GRAPHTOKEN }}
