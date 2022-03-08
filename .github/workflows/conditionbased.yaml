@@ -35,7 +35,7 @@ jobs:
           then
               echo "::set-output name=artvar::shouldtriggerpullrepo"
           else
-              echo "::set-output name=artvar::false"
+              echo "::set-output name=artvar::nonoftheoperations"
           fi
         env:
           EVENTNAME: ${{ github.event_name }}
