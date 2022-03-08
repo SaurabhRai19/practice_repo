@@ -31,6 +31,7 @@ jobs:
           then
               echo "::set-output name=artvar::shouldtriggerpullrepo"
               echo $MERGING
+              echo $EVENTNAME
           elif [ $EVENTNAME == 'release' ]
           then
               echo "::set-output name=artvar::shouldtriggerpullrepo"
@@ -40,6 +41,7 @@ jobs:
         env:
           EVENTNAME: ${{ github.event_name }}
           MERGING: true
+          
 
       - name: checking step variable
         run: echo ${{ steps.artifact_reg_var.outputs.artvar }}
