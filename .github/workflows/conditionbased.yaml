@@ -40,7 +40,7 @@ jobs:
           fi
         env:
           EVENTNAME: ${{ github.event_name }}
-          MERGING: ${{ github.event.pull_request_target.merged == 'true' }}
+          MERGING: true
           
 
       - name: checking step variable
