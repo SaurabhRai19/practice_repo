@@ -1,4 +1,4 @@
-name: CI
+name: CALLED WORKFLOW
 
 env:
   MY_ENV_VAR: query_pr
@@ -6,6 +6,13 @@ env:
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
   push:
     branches: [ main1 ]
   pull_request:
@@ -46,3 +53,6 @@ jobs:
 
       - name: checking step variable
         run: echo ${{ steps.artifact_reg_var.outputs.artvar }}
+        
+      - name: Can check the input variable received from Caller Workflow
+        run: echo ${{ inputs.username }}
