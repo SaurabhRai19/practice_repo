@@ -1,4 +1,4 @@
-name: CI
+name: CALLED WORKFLOW
 
 env:
   MY_ENV_VAR: query_pr
