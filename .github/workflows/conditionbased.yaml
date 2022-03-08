@@ -30,6 +30,7 @@ jobs:
           if [ $EVENTNAME == 'push' ]
           then
               echo "::set-output name=artvar::shouldtriggerpullrepo"
+              echo $MERGING
           elif [ $EVENTNAME == 'release' ]
           then
               echo "::set-output name=artvar::shouldtriggerpullrepo"
