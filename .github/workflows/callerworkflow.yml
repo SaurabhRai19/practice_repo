@@ -1,4 +1,4 @@
-name: CI
+name: CALLER WORKFLOW
 
 env:
   MY_ENV_VAR: query_pr
@@ -6,7 +6,7 @@ env:
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main1 ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
     
@@ -17,31 +17,5 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  prJob:    
-    
-      name: Print info
-      runs-on: ubuntu-latest
-      
-      steps:
-      
-      - name: setting artifact registory var
-        id: artifact_reg_var
-        run: |
-          if [ $EVENTNAME == 'push' ] && $MERGING
-          then
-              echo "::set-output name=artvar::shouldtriggerpullrepo"
-              echo $MERGING
-              echo $EVENTNAME
-          elif [ $EVENTNAME == 'release' ]
-          then
-              echo "::set-output name=artvar::shouldtriggerpullrepo"
-          else
-              echo "::set-output name=artvar::nonoftheoperations"
-          fi
-        env:
-          EVENTNAME: ${{ github.event_name }}
-          MERGING: true
-          
-
-      - name: checking step variable
-        run: echo ${{ steps.artifact_reg_var.outputs.artvar }}
+  call-workflow-2-in-local-repo:
+    uses: ./.github/workflows/calledworkflow.yml
