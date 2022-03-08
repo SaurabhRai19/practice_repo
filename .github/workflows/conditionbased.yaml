@@ -27,7 +27,7 @@ jobs:
       - name: setting artifact registory var
         id: artifact_reg_var
         run: |
-          if [ $EVENTNAME == 'push' ] && [ $MERGING ]
+          if [ $EVENTNAME == 'push' ] && [ $MERGING == true ]
           then
               echo "::set-output name=artvar::shouldtriggerpullrepo"
               echo $MERGING
