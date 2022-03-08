@@ -27,10 +27,10 @@ jobs:
       - name: setting artifact registory var
         id: artifact_reg_var
         run: |
-          if [$EVENTNAME == 'push']
+          if [ $EVENTNAME == 'push' ]
           then
               echo "::set-output name=artvar::shouldtriggerpullrepo"
-          elif [$EVENTNAME == 'release' ]
+          elif [ $EVENTNAME == 'release' ]
           then
               echo "::set-output name=artvar::shouldtriggerpullrepo"
           else
