@@ -23,8 +23,7 @@ jobs:
       runs-on: ubuntu-latest
       
       steps:
-        - uses: actions/checkout@v2
-            
+      
         - name: setting artifact registory var
           id: artifact_reg_var
           run: |
