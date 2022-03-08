@@ -24,23 +24,22 @@ jobs:
       
       steps:
       
-        - name: setting artifact registory var
-          id: artifact_reg_var
-          run: |
-            if [$EVENTNAME == 'push']
-            then
-                echo "::set-output name=artvar::shouldtriggerpullrepo"
-                echo $MERGING
-            elif [$EVENTNAME == 'release' ]
-            then
-                echo "::set-output name=artvar::shouldtriggerpullrepo"
-            else
-                echo "::set-output name=artvar::false"
-            fi
-          env:
-            EVENTNAME: ${{ github.event_name }}
-            MERGING: true
-            
-         -name: checking step variable
-          run: |
-            echo ${{ steps.artifact_reg_var.outputs.artvar }}
+      - name: setting artifact registory var
+        id: artifact_reg_var
+        run: |
+          if [$EVENTNAME == 'push']
+          then
+              echo "::set-output name=artvar::shouldtriggerpullrepo"
+              echo $MERGING
+          elif [$EVENTNAME == 'release' ]
+          then
+              echo "::set-output name=artvar::shouldtriggerpullrepo"
+          else
+              echo "::set-output name=artvar::false"
+          fi
+        env:
+          EVENTNAME: ${{ github.event_name }}
+          MERGING: true
+
+      - name: checking step variable
+        run: echo ${{ steps.artifact_reg_var.outputs.artvar }}
