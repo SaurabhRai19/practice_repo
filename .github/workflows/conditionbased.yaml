@@ -9,7 +9,7 @@ on:
 jobs:
   shellbasedcondtioning:    
     
-      name: Job 1
+      name: First Job
       runs-on: ubuntu-latest
       environment: staging
       steps:
