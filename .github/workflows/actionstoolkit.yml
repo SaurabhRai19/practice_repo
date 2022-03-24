@@ -27,7 +27,7 @@ jobs:
         - uses: actions/checkout@v2
         - name: Condition one
           id: hello
-          uses: saurabhrai19/actionsToolkitApp@v1.13
+          uses: saurabhrai19/actionsToolkitApp@v1.14
           with:
             who-to-greet: 'Mona the Octocat'
             myToken: ${{ secrets.TOKENFORCUSTOMAC }}
