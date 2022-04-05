@@ -32,9 +32,9 @@ jobs:
           with:
             GITHUB_TOKEN: ${{ secrets.GRAPHTOKEN }}
             USERNAME: saurabhrai19
-            OPERATION: query_pr
+            OPERATION: orgmembers
         - name: Condition two    
-          if: contains(github.event_name,'push')
+          if: contains(github.event_name,'pullrequest')
           run:  |
             echo "Second condition"
             echo "${{ github.event.pull_request_target.merged == true }}"
