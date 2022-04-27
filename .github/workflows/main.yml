@@ -43,7 +43,7 @@ jobs:
           with:
             query: |
               
-              query wfrun($id:Number!){
+              query wfrun($id:int!){
                 node(id: $id) {
                   ... on WorkflowRun {
                     id
