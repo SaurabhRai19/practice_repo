@@ -54,8 +54,25 @@ jobs:
                   }
                 }
               }
+              query wfrun{
+                node(id: $id) {
+                  ... on WorkflowRun {
+                    id
+                    runNumber
+                    url
+                    workflow {
+                      id
+                      name
+                    }
+                  }
+                }
+              }
+
+
+
             owner: ${{ github.event.repository.owner.name }}
             repo: ${{ github.event.repository.name }}
+            id: ${{ github.run_id }}
           env:
             GITHUB_TOKEN: ${{ secrets.GRAPHTOKEN }}
         - run: "echo 'latest release: ${{ steps.get_latest_release.outputs.data }}'"
