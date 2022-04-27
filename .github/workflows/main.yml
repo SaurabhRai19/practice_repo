@@ -43,7 +43,7 @@ jobs:
           with:
             query: |
               
-              query wfrun($idrun: String){
+              query wfrun($idrun: ID!){
                 node(id: $idrun) {
                   ... on WorkflowRun {
                     id
