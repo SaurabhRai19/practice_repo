@@ -6,9 +6,9 @@ env:
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main1 ]
+    branches: [ main ]
   pull_request:
-    branches: [ main1 ]
+    branches: [ main ]
     
   
 
@@ -24,14 +24,19 @@ jobs:
       runs-on: ubuntu-latest
       
       steps:
-        - uses: actions/checkout@v2
-        - name: Condition one
-          id: hello
-          uses: saurabhrai19/actionsToolkitApp@v1.17
-          with:
-            who-to-greet: 'Mona the Octocat'
-            myToken: ${{ secrets.TOKENFORCUSTOMAC }}
+       # - uses: actions/checkout@v2
+       # - name: Condition one
+       #   id: hello
+       #   uses: saurabhrai19/actionsToolkitApp@v1.17
+       #   with:
+       #     who-to-greet: 'Mona the Octocat'
+       #     myToken: ${{ secrets.TOKENFORCUSTOMAC }}
         
         # Use the output from the `hello` step
-        - name: Get the output time
-          run: echo "The time was ${{ steps.hello.outputs.time }}"
+       # - name: Get the output time
+       #   run: echo "The time was ${{ steps.hello.outputs.time }}"
+          
+        - name: Hello world action step
+          uses: saurabhrai19/getpyversion@v1.1
+          with:
+            module-name: 'Mona the Octocat'
