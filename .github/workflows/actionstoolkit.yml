@@ -37,6 +37,6 @@ jobs:
        #   run: echo "The time was ${{ steps.hello.outputs.time }}"
           
         - name: Hello world action step
-          uses: saurabhrai19/getpyversion@v1.1
+          uses: saurabhrai19/getpyversion@v1.2
           with:
-            module-name: 'Mona the Octocat'
+            module-name: 'Flask'
