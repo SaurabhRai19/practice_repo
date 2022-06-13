@@ -33,4 +33,4 @@ jobs:
             module-name: 'Flask'
             file-name: 'requirements.txt'
         - name: Get Output
-          run: echo "The Module with Version ${{ steps.moduleversion.outputs.modulewhver }}"
+          run: echo "The Module with Version- ${{ steps.moduleversion.outputs.modulewhver }}"
