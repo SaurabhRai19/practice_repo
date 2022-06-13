@@ -38,7 +38,10 @@ jobs:
         - name: checkout repo
           uses: actions/checkout@v2.3.4
         - name: Hello world action step
-          uses: saurabhrai19/getpyversion@v1.9
+          id: hello
+          uses: saurabhrai19/getpyversion@v1.10
           with:
             module-name: 'Flask'
             file-path: ${{ github.workspace }}/file.txt
+        - name: Get Output
+          run: echo "The time was ${{ steps.hello.outputs.time }}"
