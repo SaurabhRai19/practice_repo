@@ -38,7 +38,7 @@ jobs:
         - name: checkout repo
           uses: actions/checkout@v2.3.4
         - name: Hello world action step
-          uses: saurabhrai19/getpyversion@v1.7
+          uses: saurabhrai19/getpyversion@v1.8
           with:
             module-name: 'Flask'
             file-path: ${{ github.workspace }}/file.txt
