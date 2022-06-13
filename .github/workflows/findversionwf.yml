@@ -30,7 +30,7 @@ jobs:
           id: moduleversion
           uses: saurabhrai19/getpyversion@v1.13
           with:
-            module-name: 'Glass'
+            module-name: 'Flask'
             file-name: 'requirements.txt'
         - name: Get Output
           run: echo "The Module with Version ${{ steps.moduleversion.outputs.modulewhver }}"
