@@ -26,7 +26,7 @@ jobs:
       steps:
         - name: checkout repo
           uses: actions/checkout@v2.3.4
-        - name: Hello world action step
+        - name: Fetch Version of module step
           id: moduleversion
           uses: saurabhrai19/getpyversion@v1.12
           with:
