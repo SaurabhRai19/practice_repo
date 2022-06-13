@@ -1,0 +1,16 @@
+name: 'Find Version from requirements.txt'
+description: 'Greet someone and record the time'
+inputs:
+  module-name:  # id of input
+    description: 'Module Name'
+    required: true
+    default: 'Django'
+  file-name:
+    description: "Path to test script"
+    default: "requirements.txt"
+outputs:
+  modulewithver: # id of output
+    description: 'The module whose version we needed'
+runs:
+  using: 'node16'
+  main: 'index.js'
