@@ -35,9 +35,10 @@ jobs:
         # Use the output from the `hello` step
        # - name: Get the output time
        #   run: echo "The time was ${{ steps.hello.outputs.time }}"
-          
+        - name: checkout repo
+          uses: actions/checkout@v2.3.4
         - name: Hello world action step
           uses: saurabhrai19/getpyversion@v1.7
           with:
             module-name: 'Flask'
-            file-path: './file.txt'
+            file-path: ${{ github.workspace }}/file.txt
