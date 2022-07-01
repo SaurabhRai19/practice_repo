@@ -45,11 +45,11 @@ jobs:
             # The target URL
             # Required: true if custom-config is not set
             url: GET https://dev.azure.com/umaranit-org/_apis/projects?api-version=6.0
-
             # The request method, basically it's one of GET|POST|PUT|PATCH
             # Default is GET
             method: "GET"
             log-response: true
+            bearer-token: ${{ secrets.AZURE_TOKEN }}
         
           
         - name: "Call API 1"
