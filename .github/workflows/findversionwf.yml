@@ -44,4 +44,15 @@ jobs:
             url: 'https://jsonplaceholder.typicode.com/todos?id=1' 
             method: 'GET'
           
+        - name: "Call API"
+          uses: indiesdev/curl@v1.1
+          with:
+            # The target URL
+            # Required: true if custom-config is not set
+            url: https://jsonplaceholder.typicode.com/todos?id=1
+
+            # The request method, basically it's one of GET|POST|PUT|PATCH
+            # Default is GET
+            method: "POST"
+          
             
