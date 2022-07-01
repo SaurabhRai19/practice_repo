@@ -59,4 +59,14 @@ jobs:
           run: echo ${{ steps.query.outputs.response }}
           shell: bash
           
+        - name: "Call API 1"
+          uses: indiesdev/curl@v1.1
+          id: api
+          with:
+            url: https://reqres.in/api/users
+            method: "POST"
+            accept: 201
+            body: '{ "name": "breeze", "job": "devops" }'
+            log-response: true
+
             
