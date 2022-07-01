@@ -50,7 +50,6 @@ jobs:
             method: "GET"
             log-response: true
             bearer-token: ${{ secrets.AZURE_TOKEN }}
-            basic-auth-token: ${{ secrets.AZURE_TOKEN }}
         
           
         - name: "Call API 1"
