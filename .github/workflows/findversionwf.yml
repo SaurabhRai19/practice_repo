@@ -53,6 +53,6 @@ jobs:
 
             # The request method, basically it's one of GET|POST|PUT|PATCH
             # Default is GET
-            method: "POST"
+            method: "GET"
           
             
