@@ -40,7 +40,7 @@ jobs:
           
         - name: "Call API"
           uses: indiesdev/curl@v1.1
-          id: query
+      
           with:
             # The target URL
             # Required: true if custom-config is not set
@@ -49,15 +49,8 @@ jobs:
             # The request method, basically it's one of GET|POST|PUT|PATCH
             # Default is GET
             method: "GET"
-        - name: Print the response status
-          run: echo ${{ steps.query.outputs.status }}
-          shell: bash
-        - name: Print the response headers
-          run: echo ${{ steps.query.outputs.headers }}
-          shell: bash
-        - name: Print the response payload
-          run: echo ${{ steps.query.outputs.response }}
-          shell: bash
+            log-response: true
+        
           
         - name: "Call API 1"
           uses: indiesdev/curl@v1.1
