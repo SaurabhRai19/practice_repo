@@ -34,3 +34,8 @@ jobs:
             file-name: 'requirements.txt'
         - name: Get Output
           run: echo "The Module with Version- ${{ steps.moduleversion.outputs.modulewithver }}"
+          
+        - name: HTTP Request
+          uses: CamiloGarciaLaRotta/watermelon-http-client@v1
+          with:
+            url: 'https://jsonplaceholder.typicode.com/todos?id=1'
