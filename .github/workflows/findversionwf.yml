@@ -38,6 +38,26 @@ jobs:
             url: 'https://jsonplaceholder.typicode.com/todos?id=1' 
             method: 'GET'
           
+        - name: "Call API 1"
+          uses: indiesdev/curl@v1.1
+          id: api
+          with:
+            url: https://reqres.in/api/users
+            method: "POST"
+            accept: 201
+            body: '{ "name": "breeze", "job": "devops" }'
+            log-response: true
+            
+        - name: "Call API 2"
+          uses: indiesdev/curl@v1.1
+          id: api1
+          with:
+            url: https://jsonplaceholder.typicode.com/posts
+            method: "POST"
+            accept: 201
+            body: '{ "userId": 1231, "id": 54, "title": "devops", "body": "This is the body" }'
+            log-response: true
+          
         - name: "Call API"
           uses: indiesdev/curl@v1.1
       
@@ -52,14 +72,5 @@ jobs:
             bearer-token: ${{ secrets.AZURE_TOKEN }}
         
           
-        - name: "Call API 1"
-          uses: indiesdev/curl@v1.1
-          id: api
-          with:
-            url: https://reqres.in/api/users
-            method: "POST"
-            accept: 201
-            body: '{ "name": "breeze", "job": "devops" }'
-            log-response: true
 
             
