@@ -69,7 +69,7 @@ jobs:
             # Default is GET
             method: "GET"
             log-response: true
-            bearer-token: ${{ secrets.AZURE_TOKEN }}
+            #bearer-token: ${{ secrets.AZURE_TOKEN }}
         
           
 
