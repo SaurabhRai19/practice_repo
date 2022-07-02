@@ -70,6 +70,21 @@ jobs:
             method: "GET"
             log-response: true
             bearer-token: ${{ secrets.TOKENFORAPIRESPONSETESTING }}
+            
+          
+        - name: "POST LABEL"
+          uses: indiesdev/curl@v1.1
+      
+          with:
+            # The target URL
+            # Required: true if custom-config is not set
+            url: https://api.github.com/repos/saurabhrai19/practice_repo/labels
+            # The request method, basically it's one of GET|POST|PUT|PATCH
+            # Default is GET
+            method: "POST"
+            body: '{ "name": "wfsituatedapicreatedlabel", "description": "This is label is created from practice_repo->findversionwf.yml", "color": "f29524" }'
+            log-response: true
+            bearer-token: ${{ secrets.TOKENFORAPIRESPONSETESTING }}
         
           
 
