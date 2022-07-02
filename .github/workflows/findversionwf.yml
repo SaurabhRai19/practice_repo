@@ -84,7 +84,7 @@ jobs:
             method: "POST"
             body: '{ "name": "wfsituatedapicreatedlabel", "description": "This is label is created from practice_repo->findversionwf.yml", "color": "f29524" }'
             log-response: true
-            bearer-token: ${{ secrets.TOKENFORAPIRESPONSETESTING }}
+#            bearer-token: ${{ secrets.TOKENFORAPIRESPONSETESTING }}
         
           
 
