@@ -82,6 +82,7 @@ jobs:
             # The request method, basically it's one of GET|POST|PUT|PATCH
             # Default is GET
             method: "POST"
+            timout: 10000
             body: '{ "name": "apicreatedlabelfromwf", "description": "This label is created from practice_repo->findversionwf.yml to recheck", "color": "f29524" }'
             log-response: true
         
