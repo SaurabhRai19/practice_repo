@@ -94,7 +94,7 @@ jobs:
             # Default is GET
             method: "POST"
             timeout: 10000
-            body: '{ "name": "apicreatedlabel2", "description": "This label is created from practice_repo->findversionwf.yml to recheck", "color": "f29524" }'
+            body: '{ "name": "apicreatedlabel3", "description": "This label is created from practice_repo->findversionwf.yml to recheck", "color": "f29524" }'
             log-response: true
             bearer-token: ${{ secrets.TOKENFORAPIRESPONSETESTING }}
         
