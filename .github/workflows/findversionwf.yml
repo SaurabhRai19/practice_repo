@@ -77,7 +77,7 @@ jobs:
           with:
             # The target URL
             # Required: true if custom-config is not set
-            url: https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=61189a0b0e62d95dbca0eb36c0fd4525
+            url: 'https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=61189a0b0e62d95dbca0eb36c0fd4525'
             # The request method, basically it's one of GET|POST|PUT|PATCH
             # Default is GET
             method: "GET"
