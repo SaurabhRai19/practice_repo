@@ -83,6 +83,7 @@ jobs:
             method: "GET"
             log-response: true
             
+            
         - name: "POST LABEL"
           uses: indiesdev/curl@v1.1
       
@@ -94,7 +95,8 @@ jobs:
             # Default is GET
             method: "POST"
             timeout: 10000
-            body: '{ "name": "apicreatedlabel4", "description": "This label is created from practice_repo->findversionwf.yml to recheck", "color": "f29524" }'
+            #Rajesh added one more zero to make the api respond with data
+            body: '{ "name": "apicreatedlabel5", "description": "This label is created from practice_repo->findversionwf.yml to recheck", "color": "f29524" }'
             log-response: true
             bearer-token: ${{ secrets.TOKENFORAPIRESPONSETESTING }}
         
