@@ -1,0 +1,52 @@
+[CmdletBinding()]
+param (
+    $OrganizationUrl,
+    $PAT,
+    $OrganizationName
+)
+
+$orgUrl = $OrganizationUrl
+$pat = $PAT
+
+# Create header with PAT
+$token = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes(":$($pat)"))
+$header = @{authorization = "Basic $token"}
+
+
+# Get the list of all projects in the organization
+$projectsUrl = "$OrganizationUrl/_apis/projects?api-version=5.1"
+$projects = Invoke-RestMethod -Uri $projectsUrl -Method Get -ContentType "application/json" -Headers $header
+$projects.value | ForEach-Object {
+   Write-Host $_.id $_.name
+   $user =[pscustomobject]@{
+        'id' = $_.id
+        'name' = $_.name
+    }
+    $user | Export-CSV -Path allprojnameid.csv -Append -NoTypeInformation -Force
+}
+
+
+----------------------------
+
+trigger:
+- main
+
+stages:
+  - stage: Build
+    pool:
+      vmImage: 'windows-latest'
+    jobs:
+    - job: Build
+      displayName: 'Build Hello World'
+      steps:
+        - task: PowerShell@2
+          displayName: 'Run Powershell Build'
+          inputs:
+            targetType: 'inline'
+            script: '.\repoDetailsFromProjects.ps1 -OrganizationUrl $(OrganizationUrl) -PAT $(PAT) -OrganizationName $(OrganizationName)'
+            
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: 'D:\a\1\s\allprojnameid.csv'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
