@@ -27,6 +27,8 @@ $projects.value | ForEach-Object {
 
 
 ----------------------------
+In Project -> Pipelines -> Go to the pipeline where you want to add the variable and run the powershell script
+
 
 trigger:
 - main
