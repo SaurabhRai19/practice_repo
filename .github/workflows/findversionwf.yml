@@ -99,7 +99,7 @@ jobs:
           run: echo ${{ steps.api.outputs.response }}
             
             
-        - name: "POST LABEL"
+        - name: "POST LABEL FOR GITHUBAPI"
           uses: indiesdev/curl@v1.1
           id: githubapiresponse
           with:
