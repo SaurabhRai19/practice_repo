@@ -82,11 +82,26 @@ jobs:
             # Default is GET
             method: "GET"
             log-response: true
+        - name: "Call API 2"
+          uses: indiesdev/curl@v1.1
+          id: api2
+          with:
+            url: https://reqres.in/api/users
+            method: "POST"
+            accept: 201
+            # you can use multiline format to constrct json data object, the content should be yml format.
+            # this format apply to inputs: body, headers and params
+            body: |
+              name: breeze
+              job: devops
+            log-response: true
+        - name: "Use response"
+          run: echo ${{ steps.api.outputs.response }}
             
             
         - name: "POST LABEL"
           uses: indiesdev/curl@v1.1
-      
+          id: githubapiresponse
           with:
             # The target URL
             # Required: true if custom-config is not set
@@ -96,9 +111,11 @@ jobs:
             method: "POST"
             timeout: 10000
             #Rajesh added one more zero to make the api respond with data
-            body: '{ "name": "apicreatedlabel5", "description": "This label is created from practice_repo->findversionwf.yml to recheck", "color": "f29524" }'
+            body: '{ "name": "apicreatedlabel6", "description": "This label is created from practice_repo->findversionwf.yml to recheck", "color": "f29524" }'
             log-response: true
             bearer-token: ${{ secrets.TOKENFORAPIRESPONSETESTING }}
+        -  name: "Get GitHub Response"
+           run: echo ${{ steps.githubapiresponse.outputs.response }}
         
           
 
