@@ -96,7 +96,7 @@ jobs:
               job: devops
             log-response: true
         - name: "Use response"
-          run: echo ${{ steps.api.outputs.response.data }}
+          run: echo ${{ steps.api2.outputs.response.data }}
             
             
         - name: "POST LABEL FOR GITHUBAPI"
@@ -111,7 +111,7 @@ jobs:
             method: "POST"
             timeout: 10000
             #Rajesh added one more zero to make the api respond with data
-            body: '{ "name": "apicreatedlabel7", "description": "This label is created from practice_repo->findversionwf.yml to recheck", "color": "f29524" }'
+            body: '{ "name": "apicreatedlabel8", "description": "This label is created from practice_repo->findversionwf.yml to recheck", "color": "f29524" }'
             log-response: true
             bearer-token: ${{ secrets.TOKENFORAPIRESPONSETESTING }}
         -  name: "Get GitHub Response"
