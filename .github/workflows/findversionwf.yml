@@ -12,6 +12,19 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: octocat/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octo'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
+
   firstJob:    
     
       name: Find Module Version from Requirements.txt
