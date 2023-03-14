@@ -22,7 +22,7 @@ jobs:
         id: get_square
         #uses: ./ # Uses an action in the root directory
         # or use a released GitHub Action
-        uses: saurabhrai19/hello-world-python-ca@v1
+        uses: saurabhrai19/hello-world-python-ca@v2
         with:
           num: 11
       - name: Print the square
