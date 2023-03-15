@@ -11,7 +11,19 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  
+  less_complex_action_job:
+    runs-on: ubuntu-latest
+    name: A job to run less complex action
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: saurabhrai19/less-complex-js-ca@v1.1
+        with:
+          email: 'email@example.com'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The message is ${{ steps.hello.outputs.message }}"
+        
   get-num-square:
     runs-on: ubuntu-latest
     name: Returns the number square
