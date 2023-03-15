@@ -19,7 +19,7 @@ jobs:
         id: hello
         uses: saurabhrai19/less-complex-js-ca@v1.2
         with:
-          email: 'email@example.com'
+          email: '.@.com'
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The message is ${{ steps.hello.outputs.message }}"
