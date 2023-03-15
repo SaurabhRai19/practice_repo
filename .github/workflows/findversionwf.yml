@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: saurabhrai19/less-complex-js-ca@v1.8
+        uses: saurabhrai19/less-complex-js-ca@v1.9
         with:
           email: 'saurabh@.com'
       # Use the output from the `hello` step
