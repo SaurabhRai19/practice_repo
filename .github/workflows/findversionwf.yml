@@ -22,8 +22,8 @@ jobs:
           email: 'saurabh@gmail.com'
           azureprojectname: 'Parts Unlimited'
       # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The message is ${{ steps.hello.outputs.message }}"
+      - name: Is Email Valid or Not
+        run: echo "The message is - ${{ steps.hello.outputs.message }}"
         
   get-num-square:
     runs-on: ubuntu-latest
