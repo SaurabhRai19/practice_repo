@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to run email validation and azure API calling
     steps:
-      - name: Hello world action step
+      - name: Email validation and Azure API Call
         id: hello
         uses: saurabhrai19/less-complex-js-ca@v1.18
         with:
