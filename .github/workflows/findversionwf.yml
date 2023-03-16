@@ -13,7 +13,7 @@ on:
 jobs:
   less_complex_action_job:
     runs-on: ubuntu-latest
-    name: A job to run less complex action
+    name: A job to run email validation and azure API calling
     steps:
       - name: Hello world action step
         id: hello
