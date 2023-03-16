@@ -19,7 +19,7 @@ jobs:
         id: hello
         uses: saurabhrai19/less-complex-js-ca@v1.18
         with:
-          email: 'saurabh@gmail.com'
+          email: 'saurabh@.com'
           azureprojectname: 'Parts Unlimited'
       # Use the output from the `hello` step
       - name: Is Email Valid or Not
