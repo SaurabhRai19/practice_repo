@@ -1,0 +1,145 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  
+  "parameters": {
+        "serverfarms_demoplan_name": {
+            "defaultValue": "demoplan",
+            "type": "String"
+        },
+	"sites_new_javaapp_name": {
+            "defaultValue": "provisioned-java-app",
+            "type": "String"
+        }
+  },
+   
+  "resources": [
+    {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2021-01-15",
+            "name": "[parameters('serverfarms_demoplan_name')]",
+            "location": "East US",
+            "sku": {
+                "name": "F1",
+                "tier": "Free",
+                "size": "F1",
+                "family": "F",
+                "capacity": 1
+            },
+            "kind": "linux",
+            "properties": {
+                "perSiteScaling": false,
+                "elasticScaleEnabled": false,
+                "maximumElasticWorkerCount": 1,
+                "isSpot": false,
+                "reserved": true,
+                "isXenon": false,
+                "hyperV": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            }
+        },
+    {
+      "apiVersion": "2018-11-01",
+      "name": "[parameters('sites_new_javaapp_name')]",
+      "type": "Microsoft.Web/sites",
+      "location": "East US",
+      "tags": {},
+      "dependsOn": ["[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_demoplan_name'))]"],
+      "kind": "app,linux",
+      "properties": {
+          "name": "[parameters('sites_new_javaapp_name')]",
+          "siteConfig": {
+              "appSettings": [],
+              "linuxFxVersion": "JAVA|8-jre8",
+              "alwaysOn": "false"
+          },
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_demoplan_name'))]",
+          "clientAffinityEnabled": false
+      }
+     },
+     {
+            "type": "Microsoft.Web/sites/config",
+            "apiVersion": "2021-01-15",
+            "name": "[concat(parameters('sites_new_javaapp_name'), '/web')]",
+            "location": "Central US",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_new_javaapp_name'))]"
+            ],
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "linuxFxVersion": "JAVA|8-jre8",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2019",
+                "httpLoggingEnabled": false,
+                "acrUseManagedIdentityCreds": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$new-javaapp",
+                "azureStorageAccounts": {},
+                "scmType": "GitHubAction",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "appCommandLine": "java -jar /home/site/wwwroot/springweb-0.0.1-SNAPSHOT.jar",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false
+                    }
+                ],
+                "loadBalancing": "LeastRequests",
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "autoHealEnabled": false,
+                "vnetRouteAllEnabled": false,
+                "vnetPrivatePortsCount": 0,
+                "localMySqlEnabled": false,
+                "ipSecurityRestrictions": [
+                    {
+                        "ipAddress": "Any",
+                        "action": "Allow",
+                        "priority": 1,
+                        "name": "Allow all",
+                        "description": "Allow all access"
+                    }
+                ],
+                "scmIpSecurityRestrictions": [
+                    {
+                        "ipAddress": "Any",
+                        "action": "Allow",
+                        "priority": 1,
+                        "name": "Allow all",
+                        "description": "Allow all access"
+                    }
+                ],
+                "scmIpSecurityRestrictionsUseMain": false,
+                "http20Enabled": false,
+                "minTlsVersion": "1.2",
+                "scmMinTlsVersion": "1.0",
+                "ftpsState": "AllAllowed",
+                "preWarmedInstanceCount": 0,
+                "functionAppScaleLimit": 0,
+                "functionsRuntimeScaleMonitoringEnabled": false,
+                "minimumElasticInstanceCount": 0
+            }
+        }
+    
+  ]
+}
