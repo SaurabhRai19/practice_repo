@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Email validation and Azure API Call
         id: hello
-        uses: saurabhrai19/less-complex-js-ca@v1.20
+        uses: saurabhrai19/less-complex-js-ca@v1.21
         with:
           email: 'saurabh@gmail.com'
           azureprojectname: 'Parts Unlimited'
