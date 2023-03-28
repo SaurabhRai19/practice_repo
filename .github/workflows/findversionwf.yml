@@ -11,6 +11,23 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  create_PWF_action_job:
+    runs-on: ubuntu-latest
+    name: A job to create Process, Widget, fields in a ADO Organization
+    steps:
+      - name: Azure Create Process, Widget, Fields custom action
+        id: hello
+        uses: saurabhrai19/create-widget-custom-action@v1.1
+        with:
+          organization: 'DemoMBUOrg'
+          processId: 'PresalesProcess'
+          AzureAccessToken: ${{ secrets.AZURE_TOKEN }}
+      
+        
+      # Use the output from the `hello` step
+      - name: Is Email Valid or Not
+        run: echo "The message is - ${{ steps.hello.outputs.message }}"
+        
   less_complex_action_job:
     runs-on: ubuntu-latest
     name: A job to run email validation and azure API calling
