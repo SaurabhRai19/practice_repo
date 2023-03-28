@@ -17,10 +17,10 @@ jobs:
     steps:
       - name: Azure Create Process, Widget, Fields custom action
         id: hello
-        uses: saurabhrai19/create-widget-custom-action@v1.1
+        uses: saurabhrai19/create-widget-custom-action@v1.2
         with:
-          organization: 'DemoMBUOrg'
-          processId: 'PresalesProcess'
+          organization: 'MBUSolutions'
+          processId: 'Microsoft.VSTS.WorkItemTypes'
           AzureAccessToken: ${{ secrets.AZURE_TOKEN }}
       
         
