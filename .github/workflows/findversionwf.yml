@@ -13,7 +13,7 @@ on:
 jobs:
   #SaurabhRai19/Execute-PS-Script-Custom-Action
   custom_PS_Execute_Action:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     name: A job to execute Scripts inside the Custom action
     steps:
       - name: Internal PS Execute custom action job
