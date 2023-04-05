@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Internal PS Execute custom action job
         id: hello
-        uses: saurabhrai19/Execute-PS-Script-Custom-Action@v1.3
+        uses: saurabhrai19/execute-ps-script-custom-action@v1.4
         with:
           projectname: 'MBUSolutions'
           
