@@ -11,6 +11,17 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  #SaurabhRai19/Execute-PS-Script-Custom-Action
+  custom_PS_Execute_Action:
+    runs-on: ubuntu-latest
+    name: A job to execute Scripts inside the Custom action
+    steps:
+      - name: Internal PS Execute custom action job
+        id: hello
+        uses: saurabhrai19/Execute-PS-Script-Custom-Action@v1.1
+        with:
+          projectname: 'MBUSolutions'
+          
   create_PWF_action_job:
     runs-on: ubuntu-latest
     name: A job to create Process, Widget, fields in a ADO Organization
